@@ -3,7 +3,7 @@ import "./App.css";
 function App() {
   return (
     <div className="App">
-      <h1>Mario Memory Game</h1>
+      <h1 className="text-3xl font-bold underline">Mario Memory Game!</h1>{" "}
     </div>
   );
 }
