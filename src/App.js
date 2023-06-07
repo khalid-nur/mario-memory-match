@@ -1,11 +1,12 @@
-import "./App.css";
+import React from "react";
+import Board from "./components/Board";
 
-function App() {
+const App = () => {
   return (
-    <div className="App">
-      <h1 className="text-3xl font-bold underline">Mario Memory Game!</h1>{" "}
-    </div>
+    <>
+      <Board />
+    </>
   );
-}
+};
 
 export default App;

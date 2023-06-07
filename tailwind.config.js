@@ -2,7 +2,12 @@
 module.exports = {
   content: ["./src/**/*.{js,jsx,ts,tsx}"],
   theme: {
-    extend: {},
+    extend: {
+      fontFamily: {
+        "open-sans": ["Open Sans", "sans-serif"],
+        "press-start": ['"Press Start 2P"', "cursive"],
+      },
+    },
   },
   plugins: [],
 };
