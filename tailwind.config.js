@@ -7,6 +7,10 @@ module.exports = {
         "open-sans": ["Open Sans", "sans-serif"],
         "press-start": ['"Press Start 2P"', "cursive"],
       },
+      rotate: {
+        "y-45": "45deg",
+        "y-0": "0deg",
+      },
     },
   },
   plugins: [],

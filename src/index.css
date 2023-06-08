@@ -8,3 +8,11 @@
 body {
   background-color: #6589f9;
 }
+
+.rotate-y-45 {
+  transform: rotateY(90deg);
+}
+
+.rotate-y-0 {
+  transform: rotateY(20deg);
+}
