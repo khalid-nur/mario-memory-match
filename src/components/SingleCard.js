@@ -22,7 +22,7 @@ const SingleCard = (props) => {
           className={
             props.flipped
               ? "rotate-y-45 delay-75 w-[200px] border-solid  "
-              : " duration-200 delay-75 ease-in w-[200px] border-solid border-2 border-white "
+              : " duration-200 delay-75 ease-in w-[200px] border-solid border-2 border-white rounded-lg"
           }
           src="/assets/questionmark.png"
           alt=" question mark"

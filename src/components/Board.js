@@ -15,7 +15,7 @@ const Board = () => {
   const [cards, setCards] = useState([]);
   const [choiceOne, setChoiceOne] = useState(null);
   const [choiceTwo, setChoiceTwo] = useState(null);
-  const [turns, setTurns] = useState(null);
+  const [turns, setTurns] = useState(0);
 
   // Shuffle the card of images
   const shuffleCards = () => {
@@ -28,6 +28,7 @@ const Board = () => {
     setCards(shuffledCards);
     setChoiceOne(null);
     setChoiceTwo(null);
+    setTurns(0);
   };
 
   // start of the game a new fresh of cards is set
@@ -68,6 +69,9 @@ const Board = () => {
   const resetTurn = () => {
     setChoiceOne(null);
     setChoiceTwo(null);
+    setTurns((prevTurn) => {
+      return prevTurn + 1;
+    });
   };
 
   console.log(cards);
@@ -76,7 +80,7 @@ const Board = () => {
 
   return (
     <div>
-      <Control />
+      <Control turns={turns} />
       <div className="flex flex-col items-center justify-center  px-2 mt-5">
         <div className=" grid grid-cols-3 gap-2 mt-5 md:grid-cols-4 cursor-pointer">
           {cards.map((card) => (
