@@ -1,6 +1,7 @@
 import { React, useState, useEffect } from "react";
 import Control from "./Control";
 import SingleCard from "./SingleCard";
+import StartScreen from "./StartScreen";
 
 const cardImages = [
   { src: "/assets/mario.jpg", matched: false },
@@ -16,6 +17,8 @@ const Board = () => {
   const [choiceOne, setChoiceOne] = useState(null);
   const [choiceTwo, setChoiceTwo] = useState(null);
   const [turns, setTurns] = useState(0);
+  const [disabled, setDisabled] = useState(false);
+  const [startScreen, setStartScreen] = useState(true);
 
   // Shuffle the card of images
   const shuffleCards = () => {
@@ -32,9 +35,14 @@ const Board = () => {
   };
 
   // start of the game a new fresh of cards is set
-  useEffect(() => {
+  // useEffect(() => {
+  //   shuffleCards();
+  // }, []);
+
+  const startGame = () => {
+    setStartScreen(false);
     shuffleCards();
-  }, []);
+  };
 
   // Choice handler
   const choiceHandler = (card) => {
@@ -44,6 +52,8 @@ const Board = () => {
   // Compare two card
   useEffect(() => {
     if (choiceOne && choiceTwo) {
+      setDisabled(true);
+
       if (choiceOne.src === choiceTwo.src) {
         console.log("we have a match");
         setCards((prevCards) => {
@@ -72,6 +82,7 @@ const Board = () => {
     setTurns((prevTurn) => {
       return prevTurn + 1;
     });
+    setDisabled(false);
   };
 
   console.log(cards);
@@ -79,7 +90,7 @@ const Board = () => {
   console.log(choiceTwo);
 
   return (
-    <div>
+    <>
       <Control turns={turns} />
       <div className="flex flex-col items-center justify-center  px-2 mt-5">
         <div className=" grid grid-cols-3 gap-2 mt-5 md:grid-cols-4 cursor-pointer">
@@ -89,11 +100,13 @@ const Board = () => {
               card={card}
               choiceHandler={choiceHandler}
               flipped={card === choiceOne || card === choiceTwo || card.matched}
+              disabled={disabled}
             />
           ))}
         </div>
       </div>
-    </div>
+      {startScreen && <StartScreen startGameHandler={startGame} />}
+    </>
   );
 };
 

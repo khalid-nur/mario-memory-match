@@ -3,11 +3,13 @@ import React from "react";
 const SingleCard = (props) => {
   // Grab the card which the user clicked
   const clickedCardHandler = () => {
-    props.choiceHandler(props.card);
+    if (!props.disabled) {
+      props.choiceHandler(props.card);
+    }
   };
 
   return (
-    <div className=" relative">
+    <div className=" relative z-0">
       <div>
         <img
           className={
