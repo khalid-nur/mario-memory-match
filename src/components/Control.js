@@ -11,7 +11,8 @@ const Control = (props) => {
         </div>
         <div>
           <h1 className="font-press-start text-base  uppercase text-white md:text-3xl">
-            Time:00:00:00
+            Time:{props.minutes < 10 ? "0" + props.minutes : props.minutes} :
+            {props.seconds < 10 ? "0" + props.seconds : props.seconds}
           </h1>
         </div>
       </div>

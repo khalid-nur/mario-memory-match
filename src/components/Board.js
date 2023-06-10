@@ -19,6 +19,9 @@ const Board = () => {
   const [turns, setTurns] = useState(0);
   const [disabled, setDisabled] = useState(false);
   const [startScreen, setStartScreen] = useState(true);
+  const [seconds, setSeconds] = useState(0);
+  const [minutes, setMinutes] = useState(0);
+  const [intervalId, setIntervalId] = useState(null);
 
   // Shuffle the card of images
   const shuffleCards = () => {
@@ -32,16 +35,15 @@ const Board = () => {
     setChoiceOne(null);
     setChoiceTwo(null);
     setTurns(0);
+    setSeconds(0);
+    setMinutes(0);
   };
 
   // start of the game a new fresh of cards is set
-  // useEffect(() => {
-  //   shuffleCards();
-  // }, []);
-
   const startGame = () => {
     setStartScreen(false);
     shuffleCards();
+    myInterval();
   };
 
   // Choice handler
@@ -71,9 +73,10 @@ const Board = () => {
         setTimeout(() => {
           resetTurn();
         }, 500);
+        clearInterval(intervalId);
       }
     }
-  }, [choiceOne, choiceTwo]);
+  }, [choiceOne, choiceTwo, intervalId]);
 
   // Rest the cards
   const resetTurn = () => {
@@ -89,9 +92,32 @@ const Board = () => {
   console.log(choiceOne);
   console.log(choiceTwo);
 
+  // Increment seconds
+  const updateSeconds = () => {
+    setSeconds((prevSeconds) => prevSeconds + 1);
+  };
+
+  // use setInterval to run updateSecond every second and store the interval in intervalId to clear the interval
+  const myInterval = () => {
+    const updatedIntervalId = setInterval(updateSeconds, 1000);
+    setIntervalId(updatedIntervalId); // Store the interval ID
+  };
+
+  useEffect(() => {
+    if (seconds === 59) {
+      setMinutes((prevMinutes) => prevMinutes + 1);
+      setSeconds(0);
+    }
+  }, [seconds]);
+
+  console.log(seconds);
+  console.log(minutes);
+
   return (
     <>
-      <Control turns={turns} />
+      <Control turns={turns} seconds={seconds} minutes={minutes} />
+
+      {/* <button onClick={startGame}>click</button> */}
       <div className="flex flex-col items-center justify-center  px-2 mt-5">
         <div className=" grid grid-cols-3 gap-2 mt-5 md:grid-cols-4 cursor-pointer">
           {cards.map((card) => (
