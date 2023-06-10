@@ -2,6 +2,7 @@ import { React, useState, useEffect } from "react";
 import Control from "./Control";
 import SingleCard from "./SingleCard";
 import StartScreen from "./StartScreen";
+import ResultScreen from "./ResultScreen";
 
 const cardImages = [
   { src: "/assets/mario.jpg", matched: false },
@@ -22,6 +23,7 @@ const Board = () => {
   const [seconds, setSeconds] = useState(0);
   const [minutes, setMinutes] = useState(0);
   const [intervalId, setIntervalId] = useState(null);
+  const [result, setResult] = useState(false);
 
   // Shuffle the card of images
   const shuffleCards = () => {
@@ -44,6 +46,7 @@ const Board = () => {
     setStartScreen(false);
     shuffleCards();
     myInterval();
+    setResult(false);
   };
 
   // Choice handler
@@ -76,12 +79,17 @@ const Board = () => {
       }
     }
 
-    // Checks to see if all cards that are matched are true and returns true if they are
-    const isAllMatched = cards.every((card) => card.matched);
+    console.log(cards.length);
 
-    if (isAllMatched) {
-      console.log("You Win!");
-      clearInterval(intervalId);
+    if (cards.length > 0) {
+      // Checks to see if all cards that are matched are true and returns true if they are
+      const isAllMatched = cards.every((card) => card.matched);
+
+      if (isAllMatched) {
+        console.log("You Win!");
+        clearInterval(intervalId);
+        setResult(true);
+      }
     }
   }, [choiceOne, choiceTwo, intervalId, cards]);
 
@@ -122,6 +130,8 @@ const Board = () => {
 
   return (
     <>
+      {startScreen && <StartScreen startGameHandler={startGame} />}
+
       <Control turns={turns} seconds={seconds} minutes={minutes} />
 
       {/* <button onClick={startGame}>click</button> */}
@@ -138,7 +148,15 @@ const Board = () => {
           ))}
         </div>
       </div>
-      {startScreen && <StartScreen startGameHandler={startGame} />}
+
+      {result && (
+        <ResultScreen
+          startGameHandler={startGame}
+          turns={turns}
+          seconds={seconds}
+          minutes={minutes}
+        />
+      )}
     </>
   );
 };
