@@ -73,10 +73,17 @@ const Board = () => {
         setTimeout(() => {
           resetTurn();
         }, 500);
-        clearInterval(intervalId);
       }
     }
-  }, [choiceOne, choiceTwo, intervalId]);
+
+    // Checks to see if all cards that are matched are true and returns true if they are
+    const isAllMatched = cards.every((card) => card.matched);
+
+    if (isAllMatched) {
+      console.log("You Win!");
+      clearInterval(intervalId);
+    }
+  }, [choiceOne, choiceTwo, intervalId, cards]);
 
   // Rest the cards
   const resetTurn = () => {
