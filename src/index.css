@@ -5,14 +5,15 @@
 @tailwind components;
 @tailwind utilities;
 
+html,
 body {
   background-color: #6589f9;
 }
 
-.rotate-y-45 {
+.rotate-y-90 {
   transform: rotateY(90deg);
 }
 
 .rotate-y-0 {
-  transform: rotateY(20deg);
+  transform: rotateY(0deg);
 }

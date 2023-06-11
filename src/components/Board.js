@@ -82,8 +82,10 @@ const Board = () => {
       const isAllMatched = cards.every((card) => card.matched);
 
       if (isAllMatched) {
-        clearInterval(intervalId);
-        setResult(true);
+        setTimeout(() => {
+          clearInterval(intervalId);
+          setResult(true);
+        }, 500);
       }
     }
   }, [choiceOne, choiceTwo, intervalId, cards]);
@@ -122,19 +124,23 @@ const Board = () => {
 
       <Control turns={turns} seconds={seconds} minutes={minutes} />
 
-      <div className="flex flex-col items-center justify-center  px-2 mt-5">
-        <div className=" grid grid-cols-3 gap-2 mt-5 md:grid-cols-4 cursor-pointer">
-          {cards.map((card) => (
-            <SingleCard
-              key={card.id}
-              card={card}
-              choiceHandler={choiceHandler}
-              flipped={card === choiceOne || card === choiceTwo || card.matched}
-              disabled={disabled}
-            />
-          ))}
+      {!result && (
+        <div className="flex flex-col items-center justify-center  px-2 mt-5">
+          <div className=" grid grid-cols-3 gap-2 mt-5 md:grid-cols-4 cursor-pointer z-0">
+            {cards.map((card) => (
+              <SingleCard
+                key={card.id}
+                card={card}
+                choiceHandler={choiceHandler}
+                flipped={
+                  card === choiceOne || card === choiceTwo || card.matched
+                }
+                disabled={disabled}
+              />
+            ))}
+          </div>
         </div>
-      </div>
+      )}
 
       {result && (
         <ResultScreen

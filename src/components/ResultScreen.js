@@ -3,7 +3,7 @@ import ReactDOM from "react-dom";
 
 const ResultScreen = (props) => {
   return ReactDOM.createPortal(
-    <div className=" fixed bg-red-500 w-full h-screen z-10">
+    <div className=" fixed bg-red-500 w-full h-screen z-10 ">
       <div className="flex flex-col items-center h-full justify-center">
         <h1 className=" font-press-start text-white text-center text-4xl uppercase mb-8 md:text-6xl">
           Well Done <br />
@@ -28,7 +28,7 @@ const ResultScreen = (props) => {
         </button>
       </div>
     </div>,
-    document.getElementById("result-sreen")
+    document.getElementById("result-screen")
   );
 };
 

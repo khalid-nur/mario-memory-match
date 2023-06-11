@@ -14,8 +14,8 @@ const SingleCard = (props) => {
         <img
           className={
             props.flipped
-              ? "rotate-y-0 absolute duration-200 delay-75   "
-              : " rotate-y-45 absolute ease-in "
+              ? "rotate-y-0 absolute duration-200 delay-75"
+              : " rotate-y-90 absolute ease-in "
           }
           src={props.card.src}
           alt=""
@@ -23,7 +23,7 @@ const SingleCard = (props) => {
         <img
           className={
             props.flipped
-              ? "rotate-y-45 delay-75 w-[200px] border-solid  "
+              ? "rotate-y-90 delay-75 w-[200px] border-solid"
               : " duration-200 delay-75 ease-in w-[200px] border-solid border-2 border-white rounded-lg"
           }
           src="/assets/questionmark.png"

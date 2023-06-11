@@ -8,7 +8,7 @@ module.exports = {
         "press-start": ['"Press Start 2P"', "cursive"],
       },
       rotate: {
-        "y-45": "45deg",
+        "y-90": "90deg",
         "y-0": "0deg",
       },
     },
