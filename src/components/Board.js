@@ -60,7 +60,6 @@ const Board = () => {
       setDisabled(true);
 
       if (choiceOne.src === choiceTwo.src) {
-        console.log("we have a match");
         setCards((prevCards) => {
           return prevCards.map((prevCard) => {
             if (prevCard.src === choiceOne.src) {
@@ -72,21 +71,17 @@ const Board = () => {
         });
         resetTurn();
       } else {
-        console.log("no match");
         setTimeout(() => {
           resetTurn();
         }, 500);
       }
     }
 
-    console.log(cards.length);
-
     if (cards.length > 0) {
       // Checks to see if all cards that are matched are true and returns true if they are
       const isAllMatched = cards.every((card) => card.matched);
 
       if (isAllMatched) {
-        console.log("You Win!");
         clearInterval(intervalId);
         setResult(true);
       }
@@ -102,10 +97,6 @@ const Board = () => {
     });
     setDisabled(false);
   };
-
-  console.log(cards);
-  console.log(choiceOne);
-  console.log(choiceTwo);
 
   // Increment seconds
   const updateSeconds = () => {
@@ -125,16 +116,12 @@ const Board = () => {
     }
   }, [seconds]);
 
-  console.log(seconds);
-  console.log(minutes);
-
   return (
     <>
       {startScreen && <StartScreen startGameHandler={startGame} />}
 
       <Control turns={turns} seconds={seconds} minutes={minutes} />
 
-      {/* <button onClick={startGame}>click</button> */}
       <div className="flex flex-col items-center justify-center  px-2 mt-5">
         <div className=" grid grid-cols-3 gap-2 mt-5 md:grid-cols-4 cursor-pointer">
           {cards.map((card) => (
