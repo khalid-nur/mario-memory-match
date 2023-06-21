@@ -1,70 +1,67 @@
-# Getting Started with Create React App
+# Mario Memory Game W/ React/Tailwind
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This project is designed to enhance my skills in various areas, including React components, React hooks, and Tailwind CSS. By building a matching cards game, the focus is on practical learning and hands-on experience with these technologies.
 
-## Available Scripts
+## Visual Overview
 
-In the project directory, you can run:
+<a href="https://mario-memory-match.netlify.app/" target="_blank">LIVE DEMO</a>
 
-### `npm start`
+![Live Demo](./public/assets/Mario-Memory.png)
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+## Technologies Used
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+- [React](https://reactjs.org/) - A JavaScript library for building user interfaces.
+- [Tailwind CSS](https://tailwindcss.com/) - low-level CSS framework.
 
-### `npm test`
+## Features
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+- **Card Matching:** Users can flip two cards at a time and check if they match. If the cards match, they stay face up; otherwise, they flip back down.
 
-### `npm run build`
+- **Timer:** The game includes a timer that keeps track of the time taken to complete the game.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+- **Moves Counter:** A move counter displays the number of moves made by the user.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+- **Win Condition:** When all the cards are successfully matched, a win message is displayed, along with the final time and number of moves.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+- **Responsive Design:** Designed to be responsive and adaptable to different devices, ensuring an optimal user experience on desktops, tablets, and mobile devices.
 
-### `npm run eject`
+## Installation
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+Follow these steps to set up the project on your local machine:
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+1. Clone the repository:
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+   ```shell
+   git clone https://github.com/khalid-nur/mario-memory-match.git
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+   ```
 
-## Learn More
+2. Navigate to the project directory:
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+   ```shell
+   cd mario-memory-match.git
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+   ```
 
-### Code Splitting
+3. Install the required dependencies:
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+   ```shell
+   npm install
+   ```
 
-### Analyzing the Bundle Size
+4. Run the app
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+   ```shell
+   npm start
+   ```
 
-### Making a Progressive Web App
+## Usage
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+Once the project is running, you can play the matching cards game by following these instructions:
 
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+1. Click start to launch the game.
+2. Once, the game started click on any card to flip it and reveal the character.
+3. Click on another card to flip it as well.
+4. If the two cards match, they will remain face up.
+5. If the cards do not match, they will flip back down.
+6. Continue flipping cards and finding matching pairs until all cards are matched.
